@@ -1,0 +1,190 @@
+=css3($property, $value)
+  @each $prefix in -webkit-, -moz-, -ms-, -o-, ''
+    #{$prefix}#{$property}: $value
+
+a
+  color: #5bbc2e
+  &:hover, &:focus, &:active
+    color: #B0E44F
+    text-decoration: none
+html, body, #ds_wrap
+  height: 100%
+*
+  box-sizing: border-box
+body
+  background: #F0F0F0 url("../images/body.gif")
+  font-family: 'Open Sans', sans-serif
+td img
+  width: 100px
+.deleteImg
+  display: none
+  i
+    display: block
+    margin-top: 30%
+    color: #ff5c4b
+.product-image
+  display: block
+  &:hover .deleteImg
+    display: block
+    position: absolute
+    top: 0
+    width: 100%
+    height: 100%
+    font-size: 50px
+    background: rgba(255,255,255,.8)
+    text-align: center
+
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group
+  margin-left: -1px
+  background: #5BBC2E
+  color: #fff
+  border-color: #5BBC2E
+  &:hover, &:focus, &:active
+    background: #B0E44F
+
+.btn-add, .btn-delete, .btn-save, .btn-print
+  font-size: 30px
+  padding: 0
+  line-height: 0
+  color: #ccc
+  margin: 0 10px
+  cursor: pointer
+  &:hover, &:focus, &:active
+    +css3(box-shadow, none)
+    color: #333
+.btn-delete
+  &:hover, &:focus, &:active
+    color: #ff5c4b
+.btn-save
+  color: #5BBC2E
+  background: none
+  &:hover, &:focus, &:active
+    color: #B0E44F
+.btn-action
+  font-size: 20px
+  color: #5BBC2E
+  &:hover, &:focus, &:active
+    text-decoration: none
+    color: #B0E44F
+
+.ds_logo
+  display: inline-block
+  height: 40px
+  width: 25px
+  margin-right: 20px
+  background: url("../images/LogoDark.svg") left center no-repeat
+  float: left
+
+#ds_wrap
+  width: 950px
+  margin: 0 auto
+#ds_aside
+  width: 250px
+  +css3(user-select, none)
+  #ds_nav
+    list-style: none
+    padding: 71px 0 0 0
+    margin: 0
+    li.active a:before
+      content: ""
+      display: block
+      position: absolute
+      background: #fff
+      height: 20px
+      width: 20px
+      margin-left: -80px
+      margin-top: 4px
+      +css3(transform, rotate(45deg))
+    a
+      display: list-item
+      color: #737373
+      font-size: 13px
+      font-weight: 600
+      line-height: 26px
+      list-style: none
+      cursor: pointer
+      margin-bottom: 5px
+      padding: 3px 0
+      padding-left: 50px
+      text-decoration: none
+      &:hover
+        background: #fff
+      i
+        font-size: 26px
+        vertical-align: middle
+        position: absolute
+        margin-left: -40px
+      .ds_counter
+        display: inline-block
+        color: #bbb
+        margin: 5px
+        font-size: 11px
+        font-weight: normal
+        line-height: 15px
+        float: right
+    ul
+      list-style: none
+      padding: 0
+      margin: 0
+    .ds_hassubmenu:after
+      content: '\25C4'
+      display: block
+      float: right
+      margin-right: 5px
+    .ds_hassubmenu.opened:after
+      content: '\25BC'
+    .ds_hassubmenu + ul
+      display: none
+
+#ds_content
+  width: 700px
+  background: #fff
+  min-height: 100%
+  overflow: hidden
+  .container
+    padding: 71px 15px 0 15px
+    width: 100%
+    h1
+      margin: 0
+      font-size: 28px !important
+      font-family: 'Open Sans',sans-serif
+
+
+
+#ds_aside, #ds_content
+  padding: 0 20px
+  float: left
+  header
+    height: 41px
+    margin-bottom: -41px
+    border-bottom: 1px solid #BDBDBD
+    position: relative
+    z-index: 3
+    &>a:not(.ds_logo), &>div
+      text-decoration: none
+      height: 100%
+      display: block
+      float: right
+      padding: 8px
+      i
+        font-size: 26px
+        vertical-align: middle
+      a
+        &:hover, &:focus, &:active
+          text-decoration: none
+    .ds_user, .ds_website
+      color: #737373
+    .ds_mess, .ds_noti
+      color: #bbb
+      &.active
+        color: #ed7e05
+    .breadcrumb
+      padding: 10px
+      margin-bottom: 0
+      list-style: none
+      background-color: transparent
+
+@media print
+  #ds_aside, #ds_content header, .tooltip, .tooltip *
+    display: none
